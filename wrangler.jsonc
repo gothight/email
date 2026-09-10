@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "stori",
+  "main": "src/index.js",
+  "compatibility_date": "2024-11-01",
+
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true,
+      "persist": true
+    }
+  },
+
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "emails-database",
+      "database_id": ""
+    }
+  ],
+
+
+  "vars": {
+    "ENVIRONMENT": "production"
+  },
+
+  "dev": {
+    "vars": {
+      "ENVIRONMENT": "development"
+    }
+  }
+}
